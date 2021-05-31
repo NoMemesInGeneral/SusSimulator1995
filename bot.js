@@ -1,7 +1,10 @@
+// Importent Shit
 const Discord = require('discord.js');
 const config = require('./const.json');
 const client = new Discord.Client();
+// Link Embed Objects to file
 const embeds = {
+    // Fun Commands
     fun: {
         flame: require("./events/Embeds/flame"),
         death: require("./events/Embeds/death"),
@@ -11,6 +14,7 @@ const embeds = {
         spade: require("./events/Embeds/spade"),
         amongus: require("./events/Embeds/amongus"),
     },
+    // Other Commands
     version: require("./events/Embeds/version"),
 };
 client.once('ready', () => {
@@ -18,13 +22,14 @@ client.once('ready', () => {
     client.user.setActivity('Myself Being rewritten by nondumasses', { type: 'WATCHING' }).catch(console.error);
 });
 
-const prefix = "-";
+const prefix = config.prefix;
 
 client.on("message", message => {
-
+        // Only Respond to messages with the prefix
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+        // Fun Commands
     if(command ==="flame") {
         return message.channel.send({ embed: embeds.fun.flame.embed }).catch(console.error);
     }
