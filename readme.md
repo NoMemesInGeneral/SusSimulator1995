@@ -4,4 +4,8 @@ because fuck you incositancy is in the house
 
 ## Work in Progress
 
-A Rewrite for this is currently in progress. Galexion or the development team are not responible for the fuckassery you do.
+We are still working on this shit, besides, its with a 90's astetic.
+
+View the to do list at https://github.com/orgs/NoMemesInGeneral/projects/1.
+
+
