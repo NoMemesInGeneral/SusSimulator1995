@@ -1,2 +1,3 @@
 const.json
 /node_modules
+.env

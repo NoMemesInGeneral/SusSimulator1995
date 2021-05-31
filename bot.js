@@ -34,15 +34,6 @@ client.on("message", message => {
         message.channel.send(embed)
     }
 
-    if (command === "flame") {
-        const embed = new Discord.MessageEmbed()
-            .setTitle("Delete your post :neutral_face:")
-            .setImage("https://cdn.glitch.com/cea454cd-5411-4661-85dd-a0328992ca29%2Fgiphy%20(5).gif?v=1621367315251")
-            .setColor("RANDOM")
-            .setFooter("SusBot V.1")
-        message.channel.send(embed)
-    }
-
     if (command === "spade") {
         const embed = new Discord.MessageEmbed()
             .setTitle("Admit it :neutral_face:")
@@ -72,16 +63,6 @@ client.on("message", message => {
         message.channel.send(embed)
     }
 
-
-
-    if (command === "AMONG US") {
-        const embed = new Discord.MessageEmbed()
-            .setTitle("GET OUT OF MY HEAD GET OUT OF MY HEAD GET OUT OF MY HEAD GET OUT OF MY HEAD")
-            .setImage("https://cdn.discordapp.com/attachments/817552185809829912/844716071444545586/tenor_11.gif")
-            .setColor("RANDOM")
-            .setFooter("SusBot V.1")
-        message.channel.send(embed)
-    }
 
 
 
