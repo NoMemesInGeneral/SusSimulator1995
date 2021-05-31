@@ -4,6 +4,12 @@ const client = new Discord.Client();
 const embeds = {
     fun: {
         flame: require("./events/Embeds/flame"),
+        death: require("./events/Embeds/death"),
+        epic: require("./events/Embeds/epic"),
+        horny: require("./events/Embeds/horny"),
+        jameskii: require("./events/Embeds/jameskii"),
+        spade: require("./events/Embeds/spade"),
+        amongus: require("./events/Embeds/amongus"),
     },
     version: require("./events/Embeds/version"),
 };
@@ -25,6 +31,26 @@ client.on("message", message => {
 
     if(command ==="version") {
         return message.channel.send({ embed: embeds.version.embed }).catch(console.error);
+    }
+
+    if(command ==="spade") {
+        return message.channel.send({ embed: embeds.fun.spade.embed }).catch(console.error);
+    }
+
+    if(command ==="jameskii") {
+        return message.channel.send({ embed: embeds.fun.jameskii.embed }).catch(console.error);
+    }
+
+    if(command ==="horny") {
+        return message.channel.send({ embed: embeds.fun.horny.embed }).catch(console.error);
+    }
+
+    if(command ==="epic") {
+        return message.channel.send({ embed: embeds.fun.epic.embed }).catch(console.error);
+    }
+    
+    if(command ==="amongus") {
+        return message.channel.send({ embed: embeds.fun.amongus.embed }).catch(console.error);
     }
 
 });
