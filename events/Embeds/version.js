@@ -10,3 +10,4 @@ const embed = {
       "url": "https://cdn.glitch.com/cea454cd-5411-4661-85dd-a0328992ca29%2Fpiss%20fetish.PNG?v=1621366529452"
     }
   };
+  module.exports.embed = embed

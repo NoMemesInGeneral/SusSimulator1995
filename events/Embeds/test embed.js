@@ -9,4 +9,4 @@ const embed = {
 	  "text": "SusBot V.1"
 	}
   };
-  channel.send({ embed });
+  module.exports.embed = embed
