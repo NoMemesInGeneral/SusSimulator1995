@@ -45,7 +45,8 @@ client.on("message", async message => {
 
         // Fun Commands
     if(command === "flame") {
-        return message.channel.send({ embed: embeds.fun.flame.embed }).catch(console.error);
+        let btn1 = new MessageButton().setLabel("DELETE").setStyle("red").setID("Delete-flame");
+        return message.channel.send({ embed: embeds.fun.flame.embed, component: btn1 }).catch(console.error);
     }
 
     if(command === "spade") {
@@ -66,6 +67,9 @@ client.on("message", async message => {
     
     if(command === "amongus") {
         return message.channel.send({ embed: embeds.fun.amongus.embed }).catch(console.error);
+    }
+    if(command === "death") {
+        return message.channel.send({ embed: embeds.fun.death.embed }).catch(console.error);
     }
 
   //IF THE FIRST WORD IS gif THEN THE BOT HAS TO FETCH GIF RESULTS BASED ON THE NEXT WORDS
@@ -104,21 +108,31 @@ client.on("message", async message => {
         let buttonRow = new MessageActionRow().addComponent(btn1).addComponent(btn2).addComponent(btn3)
 
         //IF no Argument is made, Show the help home menu. (also this also will get messy)
-        if (args.length < 1) return message.channel.send({component: buttonRow, embed: embeds.help.home.embed },).catch(console.error);
+        if (args.length < 1) return message.channel.send({component: buttonRow, embed: embeds.help.home.embed }).catch(console.error);
     }
 });
 
 //Click Button Handler
 client.on('clickButton', async (button) => {
     if(button.id === 'fun-help') {
-        button.message.channel.send("test");
+        button.defer();
+        button.message.channel.send({ embed: embeds.help.fun.embed});
     }
     if(button.id === 'info-help') {
-        button.message.channel.send("test");
+        button.defer();
+        button.message.channel.send({ embed: embeds.help.info.embed});
     }
     if(button.id === 'credits') {
         button.defer();
         return button.message.channel.send({ embed: embeds.version.embed });
+    }
+    if(button.id === 'Delete-flame') {
+        button.think();
+        setTimeout(function(){
+            button.reply.delete();
+            button.message.delete();
+        }, 2000);
+        
     }
 });
 
