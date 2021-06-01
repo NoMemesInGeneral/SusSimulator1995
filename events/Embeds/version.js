@@ -1,6 +1,6 @@
 const embed = {
     "title": "SusSimulator1995 / VentBot 1997  Pre Alpha 1",
-    "description": "Version v1, Made by non idiots, Such as Galexion#0612, and Gman#8354",
+    "description": "Version v1, Made by non idiots, Such as Galexion#0612, and Gman#8354\nMade with the 90's Unprofesinal asstetic",
     "color": 15046153,
     "footer": {
       "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",

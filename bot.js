@@ -16,6 +16,12 @@ const embeds = {
     },
     // Other Commands
     version: require("./events/Embeds/version"),
+    //Help Menu (this will get messy)
+    help: {
+        home: require("./events/help"),
+        fun: require("./events/Help/Fun"),
+        info: require("./events/Help/info"),
+    }
 };
 client.once('ready', () => {
     console.log('Ready!');
@@ -30,34 +36,41 @@ client.on("message", message => {
     const command = args.shift().toLowerCase();
 
         // Fun Commands
-    if(command ==="flame") {
+    if(command === "flame") {
         return message.channel.send({ embed: embeds.fun.flame.embed }).catch(console.error);
     }
 
-    if(command ==="version") {
-        return message.channel.send({ embed: embeds.version.embed }).catch(console.error);
-    }
-
-    if(command ==="spade") {
+    if(command === "spade") {
         return message.channel.send({ embed: embeds.fun.spade.embed }).catch(console.error);
     }
 
-    if(command ==="jameskii") {
+    if(command === "jameskii") {
         return message.channel.send({ embed: embeds.fun.jameskii.embed }).catch(console.error);
     }
 
-    if(command ==="horny") {
+    if(command === "horny") {
         return message.channel.send({ embed: embeds.fun.horny.embed }).catch(console.error);
     }
 
-    if(command ==="epic") {
+    if(command === "epic") {
         return message.channel.send({ embed: embeds.fun.epic.embed }).catch(console.error);
     }
     
-    if(command ==="amongus") {
+    if(command === "amongus") {
         return message.channel.send({ embed: embeds.fun.amongus.embed }).catch(console.error);
     }
 
+
+    // Help and Bot Version commands
+
+    if(command === "version") {
+        return message.channel.send({ embed: embeds.version.embed }).catch(console.error);
+    }
+
+    if(command === "help") {
+        //IF no Argument is made, Show the help home menu. (also this also will get messy)
+        if (args.length < 1) return message.channel.send({ embed: embeds.help.home.embed }).catch(console.error);
+    }
 });
 
 client.login(config.token);
