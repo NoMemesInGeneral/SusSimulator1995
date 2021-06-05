@@ -16,6 +16,9 @@ const embeds = {
         jameskii: require("./events/Embeds/jameskii"),
         spade: require("./events/Embeds/spade"),
         amongus: require("./events/Embeds/amongus"),
+        cola: require("./events/Embeds/cola"),
+        chip: require("./events/Embeds/chip"),
+        test: require("./events/Embeds/test embed")
     },
     // Other Commands
     version: require("./events/Embeds/version"),
@@ -28,13 +31,14 @@ const embeds = {
 };
 client.once('ready', () => {
     console.log('All 40k of Ram is Smooth!');
-    client.user.setActivity('Myself Being rewritten by nondumasses', { type: 'WATCHING' }).catch(console.error);
+    console.log('Rewritten by Gman And Galaxion!')
+    client.user.setActivity('Myself Being Out Of Beta And Released On Time', { type: 'WATCHING' }).catch(console.error);
 });
 
 const prefix = config.prefix;
 
 client.on("message", async message => {
-        // Only Respond to messages with the prefix
+    // Only Respond to messages with the prefix
 
     if (message.content === "20goto10") {
         return message.channel.send("https://media.giphy.com/media/XbIoQQuFfFIirDn4A0/giphy.gif").catch(console.error);
@@ -43,45 +47,59 @@ client.on("message", async message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-        // Fun Commands
-    if(command === "flame") {
+    // Fun Commands
+    if (command === "flame") {
         let btn1 = new MessageButton().setLabel("DELETE").setStyle("red").setID("Delete-flame");
         return message.channel.send({ embed: embeds.fun.flame.embed, component: btn1 }).catch(console.error);
     }
 
-    if(command === "spade") {
+    if (command === "spade") {
         return message.channel.send({ embed: embeds.fun.spade.embed }).catch(console.error);
     }
 
-    if(command === "jameskii") {
+    if (command === "test") {
+        return message.channel.send({ embed: embeds.fun.test.embed }).catch(console.error);
+    }
+
+    if (command === "jameskii") {
         return message.channel.send({ embed: embeds.fun.jameskii.embed }).catch(console.error);
     }
 
-    if(command === "horny") {
+    if (command === "horny") {
         return message.channel.send({ embed: embeds.fun.horny.embed }).catch(console.error);
     }
 
-    if(command === "epic") {
+    if (command === "epic") {
         return message.channel.send({ embed: embeds.fun.epic.embed }).catch(console.error);
     }
-    
-    if(command === "amongus") {
+
+    if (command === "amongus") {
         return message.channel.send({ embed: embeds.fun.amongus.embed }).catch(console.error);
     }
-    if(command === "death") {
+    if (command === "death") {
         return message.channel.send({ embed: embeds.fun.death.embed }).catch(console.error);
     }
+
+    if (command === "cola") {
+        return message.channel.send({ embed: embeds.fun.cola.embed }).catch(console.error);
+    }
+
+    if (command === "chip") {
+        return message.channel.send({ embed: embeds.fun.chip.embed }).catch(console.error);
+    }
+
 
   //IF THE FIRST WORD IS gif THEN THE BOT HAS TO FETCH GIF RESULTS BASED ON THE NEXT WORDS
   if (command === "gif") {
       console.log(args.length)
       console.log(args)
     //WE WILL COMBINE THE WORDS WHICH HAS BEEN SPLITTED EXPECT THE FIRST WORD
-    const keywords = args.slice(1, args.length).join(" ");
+    //DONT FUCKING CHANGE NUMBER | THAT ONE RIGHT FUCKING THERE
+    const keywords = args.slice(0, args.length).join(" ");
     console.log(keywords)
     //NOW THIS IS THE API ENDPOINT FROM WHICH WE WILL RECEIVE THE GIFS
     //HERE WE WILL GET 10 GIFS FROM THIS YOU CAN CHANGE IT YOU WANT
-    const url = `https://api.tenor.com/v1/search?q=${keywords}&key=${config.tenor}&limit=10`;
+    const url = ` https://api.tenor.com/v1/search?q=${keywords}&key=${config.tenor}&limit=10 `;
     console.log(url)
     //FETCH THE RESULTS
     const response = await fetch(url);
@@ -101,14 +119,9 @@ client.on("message", async message => {
 
     if(command === "help") {
         // Add Button Funtions
-        
-        let btn1 = new MessageButton().setLabel("Fun").setStyle("blurple").setID("fun-help");
-        let btn2 = new MessageButton().setLabel("Infomation").setStyle("blurple").setID("info-help");
-        let btn3 = new MessageButton().setLabel("Credits").setStyle("blurple").setID("credits");
-        let buttonRow = new MessageActionRow().addComponent(btn1).addComponent(btn2).addComponent(btn3)
 
         //IF no Argument is made, Show the help home menu. (also this also will get messy)
-        if (args.length < 1) return message.channel.send({component: buttonRow, embed: embeds.help.home.embed }).catch(console.error);
+        if (args.length < 1) return message.channel.send({component: embeds.help.home.component, embed: embeds.help.home.embed }).catch(console.error);
     }
 });
 
